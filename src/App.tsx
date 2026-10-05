@@ -58,10 +58,10 @@ export default function App() {
   const [isFakeCallOpen, setIsFakeCallOpen] = useState(false);
   const [isStealthMode, setIsStealthMode] = useState(false);
 
-  // User live location
+  // User live location (Default: Karachi center, overridden by real GPS)
   const [location, setLocation] = useState<{ lat: number | null; lng: number | null }>({
-    lat: 31.5204,
-    lng: 74.3587,
+    lat: 24.8607,
+    lng: 67.0011,
   });
 
   // Emergency contacts persisted in localStorage
