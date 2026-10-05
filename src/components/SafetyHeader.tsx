@@ -19,8 +19,8 @@ interface SafetyHeaderProps {
   onOpenSOS: () => void;
   onOpenStealth: () => void;
   onOpenFakeCall: () => void;
-  activeTab: 'threat' | 'journey' | 'child' | 'contacts' | 'helplines';
-  setActiveTab: (tab: 'threat' | 'journey' | 'child' | 'contacts' | 'helplines') => void;
+  activeTab: 'threat' | 'safespots' | 'journey' | 'child' | 'contacts' | 'helplines';
+  setActiveTab: (tab: 'threat' | 'safespots' | 'journey' | 'child' | 'contacts' | 'helplines') => void;
   location: { lat: number | null; lng: number | null; address?: string };
 }
 
@@ -80,6 +80,18 @@ export const SafetyHeader: React.FC<SafetyHeaderProps> = ({
               }`}
             >
               {isUrdu ? 'خطرے کا جائزہ (AI Threat)' : 'Threat AI'}
+            </button>
+
+            <button
+              onClick={() => setActiveTab('safespots')}
+              className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                activeTab === 'safespots'
+                  ? 'bg-white text-slate-900 shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <MapPin className="w-3.5 h-3.5 text-rose-600" />
+              <span>{isUrdu ? 'قریبی مدد و میپ (Safe Maps)' : 'Safe Spots Map'}</span>
             </button>
 
             <button
@@ -177,6 +189,12 @@ export const SafetyHeader: React.FC<SafetyHeaderProps> = ({
             className={`px-2.5 py-1 rounded-md shrink-0 ${activeTab === 'threat' ? 'bg-rose-100 text-rose-800' : 'text-slate-600'}`}
           >
             {isUrdu ? 'خطرے کا جائزہ' : 'Threat AI'}
+          </button>
+          <button
+            onClick={() => setActiveTab('safespots')}
+            className={`px-2.5 py-1 rounded-md shrink-0 ${activeTab === 'safespots' ? 'bg-rose-100 text-rose-800 font-bold' : 'text-slate-600'}`}
+          >
+            {isUrdu ? 'قریبی میپ' : 'Safe Maps'}
           </button>
           <button
             onClick={() => setActiveTab('journey')}

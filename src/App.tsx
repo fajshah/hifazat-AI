@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { SafetyHeader } from './components/SafetyHeader';
 import { ThreatAnalyzer } from './components/ThreatAnalyzer';
 import { SafeJourneyGuardian } from './components/SafeJourneyGuardian';
+import { NearbySafeSpotsMap } from './components/NearbySafeSpotsMap';
 import { ChildSafetyShield } from './components/ChildSafetyShield';
 import { EmergencyContactsManager } from './components/EmergencyContactsManager';
 import { HelplinesDirectory } from './components/HelplinesDirectory';
@@ -52,7 +53,7 @@ const DEFAULT_CONTACTS: EmergencyContact[] = [
 
 export default function App() {
   const [language, setLanguage] = useState<'romanUrdu' | 'english'>('romanUrdu');
-  const [activeTab, setActiveTab] = useState<'threat' | 'journey' | 'child' | 'contacts' | 'helplines'>('threat');
+  const [activeTab, setActiveTab] = useState<'threat' | 'safespots' | 'journey' | 'child' | 'contacts' | 'helplines'>('threat');
   const [isSOSOpen, setIsSOSOpen] = useState(false);
   const [isFakeCallOpen, setIsFakeCallOpen] = useState(false);
   const [isStealthMode, setIsStealthMode] = useState(false);
@@ -178,6 +179,13 @@ export default function App() {
             location={location}
             onTriggerSOS={() => setIsSOSOpen(true)}
             onTriggerFakeCall={() => setIsFakeCallOpen(true)}
+          />
+        )}
+
+        {activeTab === 'safespots' && (
+          <NearbySafeSpotsMap
+            language={language}
+            userLocation={location}
           />
         )}
 
