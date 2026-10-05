@@ -1,0 +1,6 @@
+{
+  "name": "PulseTriage AI: Clinical Risk & Emergency Decision Engine",
+  "description": "Production-grade AI clinical decision support system for emergency triage, multi-agent differential diagnosis, guideline grounding, and patient safety stratification built for the Build with AI challenge.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
